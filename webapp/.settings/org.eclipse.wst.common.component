@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="marmotta-webapp">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="marmotta-core-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-core/marmotta-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-ldpath-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-ldpath/marmotta-ldpath">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-backend-kiwi-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-backend-kiwi/marmotta-backend-kiwi">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-ldcache-common-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-ldcache-common/marmotta-ldcache-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-ldcache-kiwi-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-ldcache-kiwi/marmotta-ldcache-kiwi">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-reasoner-kiwi-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-reasoner-kiwi/marmotta-reasoner-kiwi">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-sparql-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-sparql/marmotta-sparql">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-versioning-common-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-versioning-common/marmotta-versioning-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="marmotta-user-3.2.0-incubating-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/marmotta-user/marmotta-user">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="marmotta"/>
+        <property name="java-output-path" value="/marmotta-webapp/target/classes"/>
+    </wb-module>
+</project-modules>
