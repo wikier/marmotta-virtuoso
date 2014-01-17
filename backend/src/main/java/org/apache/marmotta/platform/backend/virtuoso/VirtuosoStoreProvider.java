@@ -64,12 +64,13 @@ public class VirtuosoStoreProvider implements StoreProvider {
      */
     @Override
     public NotifyingSail createStore() {
-        log.info("Initializing Backend: Virtuoso Store");
-        final Repository repository = createRepository();
-        Sail sail = new RepositorySail(repository);
-        NotifyingSailWrapper notifyingSail = new NotifyingSailWrapper();
-        notifyingSail.setBaseSail(sail);
-        return notifyingSail;
+        final String host = configurationService.getStringConfiguration("virtuoso.host", "localhost");
+        final int port = configurationService.getIntConfiguration("virtuoso.port", 1111);
+        final String user = configurationService.getStringConfiguration("virtuoso.user", "dba");
+        final String pass = configurationService.getStringConfiguration("virtuoso.pass", "dba");
+        final String connString = "jdbc:virtuoso://"+host+":"+port;
+        log.info("Initializing Backend: Virtuoso Store, over " + connString + "...");
+        return new VirtuosoNotifyingSail(connString, user, pass);
     }
 
     public void configurationChanged(@Observes ConfigurationChangedEvent e) {
@@ -89,21 +90,6 @@ public class VirtuosoStoreProvider implements StoreProvider {
     @Override
     public SailRepository createRepository(Sail sail) {
         return new SailRepository(sail);
-    }
-
-    /**
-     * Create a repository from the configuration
-     *
-     * @return repository
-     */
-    public Repository createRepository() {
-        final String host = configurationService.getStringConfiguration("virtuoso.host", "localhost");
-        final int port = configurationService.getIntConfiguration("virtuoso.port", 1111);
-        final String user = configurationService.getStringConfiguration("virtuoso.user", "dba");
-        final String pass = configurationService.getStringConfiguration("virtuoso.pass", "dba");
-        final String connString = "jdbc:virtuoso://"+host+":"+port;
-        log.info("Initializing Virtuoso Repository over " + connString + "...");
-        return new VirtuosoRepository(connString, user, pass);
     }
 
     /**
