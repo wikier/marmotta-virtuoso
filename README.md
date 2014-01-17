@@ -4,7 +4,7 @@ This project tries to implement support to use [OpenLink Virtuoso](http://virtuo
 as backend for [Apache Marmotta](http://marmotta.apache.org). Although it's still
 in a very experimental status.
 
-## Installation
+## Usage
 
 The library build should be fully managed with [Maven](http://maven.apache.org),
 but [Virtoso Sesame](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider)
@@ -25,7 +25,8 @@ and point your browser to http://localhost:8080
 
 ## Relationship with Marmotta
 
-[I](http://www.wikier.org)'m committer of Apache Marmotta, so my final aim to 
-contribute this code to the Apache project. But, given its current experimental 
-status and the distribution issues, for the moment I prefer to keep it here.
+[I](http://www.wikier.org)'m committer of Apache Marmotta, so my final aim is to 
+contribute this code to the ASF project. But, given its current experimental 
+status and the distribution and legal issues, for the moment I'd prefer to keep 
+it out of the main project.
 
