@@ -11,8 +11,8 @@ but [Virtoso Sesame](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/
 does not publish artifacts in a compatible way. Therefore you would need to manually
 install it:
 
+    mvn install:install-file -Dfile=virtjdbc4.jar -DgroupId=com.openlinksw.virtuoso -DartifactId=virtuoso-jdbc4 -Dversion=4.0.0 -Dpackaging=jar
     mvn install:install-file -Dfile=virt_sesame2.jar -DgroupId=com.openlinksw.virtuoso -DartifactId=virtuoso-sesame -Dversion=2.7.0 -Dpackaging=jar
-    mvn install:install-file -Dfile=virtjdbc3.jar -DgroupId=com.openlinksw.virtuoso -DartifactId=virtuoso-jdbc3 -Dversion=3.0.0 -Dpackaging=jar
 
 After that, you should be able to normally proceed by installing the backend and
 launching Marmotta as usual:
