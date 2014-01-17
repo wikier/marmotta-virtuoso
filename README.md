@@ -21,7 +21,10 @@ launching Marmotta as usual:
     cd webapp
     mvn tomcat7:run
 
-and point your browser to http://localhost:8080
+and point your browser to [localhost:8080](http://localhost:8080)
+
+By default the backend expects to access Virtuoso on `localhost:1111`
+with the default credentials, but you can customize that.
 
 ## Relationship with Marmotta
 
