@@ -70,7 +70,8 @@ public class VirtuosoStoreProvider implements StoreProvider {
         final String pass = configurationService.getStringConfiguration("virtuoso.pass", "dba");
         final String connString = "jdbc:virtuoso://"+host+":"+port;
         log.info("Initializing Backend: Virtuoso Store, over " + connString + "...");
-        return new VirtuosoNotifyingSail(connString, user, pass);
+        VirtuosoRepository repository = new VirtuosoRepository(connString, user, pass);
+        return new VirtuosoNotifyingSail(new RepositorySail(repository));
     }
 
     public void configurationChanged(@Observes ConfigurationChangedEvent e) {

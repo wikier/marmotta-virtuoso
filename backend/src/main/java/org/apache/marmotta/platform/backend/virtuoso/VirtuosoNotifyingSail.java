@@ -1,5 +1,6 @@
 package org.apache.marmotta.platform.backend.virtuoso;
 
+import net.fortytwo.sesametools.reposail.RepositorySail;
 import org.openrdf.model.*;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.sail.*;
@@ -20,15 +21,15 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
 
         private static Logger log = LoggerFactory.getLogger(VirtuosoNotifyingSail.class);
 
-        private VirtuosoRepository repository;
+        private Sail sail;
 
         private Set<SailChangedListener> sailChangedListeners = new HashSet<SailChangedListener>(0);
 
         /**
          * Create or re-open a database instance configured using defaults.
          */
-        public VirtuosoNotifyingSail(String connString, String user, String pass) {
-            repository = new VirtuosoRepository(connString, user, pass);
+        public VirtuosoNotifyingSail(Sail sail) {
+            this.sail = sail;
         }
 
         /**
@@ -67,21 +68,12 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
 
         @Override
         public void initialize() throws SailException {
-            try {
-                repository.initialize();
-            } catch (RepositoryException e) {
-                throw new SailException(e);
-            }
-            super.initialize();
+            sail.initialize();
         }
 
         @Override
         protected NotifyingSailConnection getConnectionInternal() throws SailException {
-            try {
-                return new VirtuosoSailConnection(this, repository.getConnection());
-            } catch (RepositoryException e) {
-                throw new SailException(e);
-            }
+            return this.getConnection();
         }
 
         /**
@@ -89,11 +81,7 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
          */
         @Override
         protected void shutDownInternal() throws SailException {
-            try {
-                repository.shutDown();
-            } catch (RepositoryException e) {
-                throw new SailException(e);
-            }
+            sail.shutDown();
         }
 
         /**
@@ -102,11 +90,7 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
          */
         @Override
         public boolean isWritable() throws SailException {
-            try {
-                return repository.isWritable();
-            } catch (RepositoryException e) {
-                throw new SailException(e);
-            }
+            return sail.isWritable();
         }
 
         /**
@@ -117,7 +101,7 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
          */
         @Override
         public ValueFactory getValueFactory() {
-            return repository.getValueFactory();
+            return sail.getValueFactory();
         }
 
 }
