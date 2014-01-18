@@ -22,11 +22,9 @@ import org.apache.marmotta.platform.core.api.config.ConfigurationService;
 import org.apache.marmotta.platform.core.api.triplestore.SesameService;
 import org.apache.marmotta.platform.core.api.triplestore.StoreProvider;
 import org.apache.marmotta.platform.core.events.ConfigurationChangedEvent;
-import org.openrdf.repository.Repository;
 import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.sail.NotifyingSail;
 import org.openrdf.sail.Sail;
-import org.openrdf.sail.helpers.NotifyingSailWrapper;
 import org.slf4j.Logger;
 import virtuoso.sesame2.driver.VirtuosoRepository;
 
@@ -71,7 +69,7 @@ public class VirtuosoStoreProvider implements StoreProvider {
         final String connString = "jdbc:virtuoso://"+host+":"+port;
         log.info("Initializing Backend: Virtuoso Store, over " + connString + "...");
         VirtuosoRepository repository = new VirtuosoRepository(connString, user, pass);
-        return new VirtuosoNotifyingSail(new RepositorySail(repository));
+        return new NotifyingSailWrapper(repository);
     }
 
     public void configurationChanged(@Observes ConfigurationChangedEvent e) {

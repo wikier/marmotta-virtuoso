@@ -1,35 +1,39 @@
 package org.apache.marmotta.platform.backend.virtuoso;
 
 import net.fortytwo.sesametools.reposail.RepositorySail;
-import org.openrdf.model.*;
-import org.openrdf.repository.RepositoryException;
+import org.openrdf.model.ValueFactory;
+import org.openrdf.repository.Repository;
 import org.openrdf.sail.*;
 import org.openrdf.sail.helpers.NotifyingSailBase;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import virtuoso.sesame2.driver.VirtuosoRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Virtuoso Notifying Sail
+ * Notifying Sail Wrapper
  *
  * @author Sergio Fernández
  */
-public class VirtuosoNotifyingSail extends NotifyingSailBase implements NotifyingSail {
-
-        private static Logger log = LoggerFactory.getLogger(VirtuosoNotifyingSail.class);
+public class NotifyingSailWrapper extends NotifyingSailBase implements NotifyingSail {
 
         private Sail sail;
 
-        private Set<SailChangedListener> sailChangedListeners = new HashSet<SailChangedListener>(0);
+        private Set<SailChangedListener> sailChangedListeners = new HashSet<>(0);
 
         /**
-         * Create or re-open a database instance configured using defaults.
+         * Create a wrapper from a Sail
+         *
          */
-        public VirtuosoNotifyingSail(Sail sail) {
+        public NotifyingSailWrapper(Sail sail) {
             this.sail = sail;
+        }
+
+        /**
+         * Create a wrapper from a Repository
+         *
+         */
+        public NotifyingSailWrapper(Repository repository) {
+            this(new RepositorySail(repository));
         }
 
         /**
@@ -54,10 +58,11 @@ public class VirtuosoNotifyingSail extends NotifyingSailBase implements Notifyin
             }
         }
 
-        /*
+        /**
         * Notifies all registered SailChangedListener's of changes to the contents
         * of this Sail.
         */
+        @Override
         public void notifySailChanged(SailChangedEvent event) {
             synchronized (sailChangedListeners) {
                 for (SailChangedListener l : sailChangedListeners) {
