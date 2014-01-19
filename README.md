@@ -29,7 +29,7 @@ backend settings.
 
 Please, note that the [Virtoso Sesame Provider](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider)
 is published under GNU General Public License (version 2 only), and therefore 
-requires special consideration when distributing this package.
+requires special considerations when distributing this package.
 
 ## Relationship with Marmotta
 
