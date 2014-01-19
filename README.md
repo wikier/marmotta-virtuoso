@@ -24,12 +24,18 @@ launching Marmotta as usual:
 and point your browser to [localhost:8080](http://localhost:8080)
 
 By default the backend expects to access Virtuoso on `localhost:1111`
-with the default credentials, but you can customize that.
+with the default credentials, but you can customize that from the 
+backend settings.
 
 ## Relationship with Marmotta
 
 [I](http://www.wikier.org)'m committer of Apache Marmotta, so my final aim is to 
 contribute this code to the ASF project. But, given its current experimental 
-status and the distribution and legal issues, for the moment I'd prefer to keep 
+status and distribution and legal issues, for the moment I'd prefer to keep 
 it out of the main project.
+
+## Acknowledgement
+
+This work is partially funded by [Fusepool P3](http://www.salzburgresearch.at/projekt/fusepool/)
+FP7 Project.
 
