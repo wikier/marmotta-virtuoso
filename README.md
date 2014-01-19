@@ -6,8 +6,8 @@ in a very experimental status.
 
 ## Usage
 
-The library build should be fully managed with [Maven](http://maven.apache.org),
-but [Virtoso Sesame](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider)
+The library build should be fully managed with [Maven](http://maven.apache.org), but 
+[Virtoso Sesame Provider](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider)
 does not publish artifacts in a compatible way. Therefore you would need to manually
 install it:
 
@@ -26,6 +26,10 @@ and point your browser to [localhost:8080](http://localhost:8080)
 By default the backend expects to access Virtuoso on `localhost:1111`
 with the default credentials, but you can customize that from the 
 backend settings.
+
+Please, note that the [Virtoso Sesame Provider](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider)
+is published under GNU General Public License (version 2 only), and therefore 
+requires special consideration when distributing this package.
 
 ## Relationship with Marmotta
 
