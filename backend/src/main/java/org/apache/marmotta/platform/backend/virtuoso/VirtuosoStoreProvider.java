@@ -14,10 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.marmotta.platform.backend.virtuoso;
 
-import net.fortytwo.sesametools.reposail.RepositorySail;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
+import javax.inject.Inject;
+
 import org.apache.marmotta.platform.core.api.config.ConfigurationService;
 import org.apache.marmotta.platform.core.api.triplestore.SesameService;
 import org.apache.marmotta.platform.core.api.triplestore.StoreProvider;
@@ -26,11 +28,8 @@ import org.openrdf.repository.sail.SailRepository;
 import org.openrdf.sail.NotifyingSail;
 import org.openrdf.sail.Sail;
 import org.slf4j.Logger;
-import virtuoso.sesame2.driver.VirtuosoRepository;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
+import virtuoso.sesame2.driver.VirtuosoRepository;
 
 /**
  * A store provider implementation for Apache Marmotta providing instances of Virtuoso stores.
@@ -67,6 +66,7 @@ public class VirtuosoStoreProvider implements StoreProvider {
         final String user = configurationService.getStringConfiguration("virtuoso.user", "dba");
         final String pass = configurationService.getStringConfiguration("virtuoso.pass", "dba");
         final String connString = "jdbc:virtuoso://"+host+":"+port;
+        
         log.info("Initializing Backend: Virtuoso Store, over " + connString + "...");
         VirtuosoRepository repository = new VirtuosoRepository(connString, user, pass);
         return new NotifyingSailWrapper(repository);
