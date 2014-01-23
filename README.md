@@ -9,8 +9,7 @@ in a very experimental status.
 The library build should be fully managed with [Maven][Maven], but 
 [Virtoso Sesame Provider][VSesameP]
 does not publish artifacts in a compatible way. Therefore you would need to manually
-download them from ([here][download])
-and install it to your local maven cache:
+[download][download] them and install it to your local maven cache:
 
     mvn install:install-file -Dfile=virtjdbc4.jar -DgroupId=com.openlinksw.virtuoso -DartifactId=virtuoso-jdbc4 -Dversion=4.0.0 -Dpackaging=jar
     mvn install:install-file -Dfile=virt_sesame2.jar -DgroupId=com.openlinksw.virtuoso -DartifactId=virtuoso-sesame -Dversion=2.7.0 -Dpackaging=jar
