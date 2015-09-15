@@ -41,7 +41,7 @@ it out of the main project.
 ## Acknowledgement
 
 This work is partially funded by [Fusepool P3][Fusepool]
-FP7 Project.
+FP7 Project under grant n° 609696.
 
 [Virtuoso]: http://virtuoso.openlinksw.com
 [Marmotta]: http://marmotta.apache.org
@@ -49,5 +49,5 @@ FP7 Project.
 [VSesameP]: http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VirtSesame2Provider
 [download]: http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSDownload#Sesame%20Provider
 [GPL2]: http://www.gnu.org/licenses/gpl-2.0.html
-[Fusepool]: http://www.salzburgresearch.at/projekt/fusepool/
+[Fusepool]: http://p3.fusepool.eu/
 
